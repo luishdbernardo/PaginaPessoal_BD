@@ -1,0 +1,195 @@
+﻿.tamanholetra {
+    font-size: 14px !important;
+}
+
+#padfig {
+    padding-bottom: 80px;
+}
+
+.lead1 {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.divider-custom {
+    margin: 1.25rem 0 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#h2.tamanho {
+    font-size: 20px;
+}
+
+#p.tamanho {
+    font-size: 40px;
+}
+
+.thead {
+    background-color: #1abc9c;
+}
+
+#ocultar {
+    visibility: hidden;
+}
+
+.table {
+    text-align: center !important;
+}
+
+#imagemflutua {
+    position: relative;
+}
+
+    #imagemflutua:hover {
+        top: -5px;
+        box-shadow: 0 8px 8px #105f4f;
+        opacity: 0.7;
+    }
+
+#h2size {
+    font-size: 2.8rem;
+}
+
+.fa-carrot, .fa-futbol, .fa-tv, .fa-wikipedia-w, .fa-bus, .fa-church {
+    font-size: 72px;
+}
+
+.fa-carrot {
+    color: #e27c3e;
+}
+
+.fa-futbol {
+    color: #45b39c;
+}
+
+.fa-tv {
+    color: #1037b5;
+}
+
+.fa-wikipedia-w {
+    color: #1fa4b6;
+}
+
+.fa-bus {
+    color: #e4c74e;
+}
+
+.fa-church {
+    color: #ba4c63;
+}
+
+
+#alinhamento {
+    text-align: end !important;
+    align-content: end !important;
+    align-items: end !important;
+}
+
+.bg-primary {
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#titulos {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.bg-pprimary {
+    background-image: url(../img/background2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    #myImg:hover {
+        opacity: 0.7;
+    }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0.1)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    color: #f1f1f1;
+    font-size: 100px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}

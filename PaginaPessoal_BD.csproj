@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>aspnet-PaginaPessoal_BD-9F2A8636-61CE-4F81-9B38-951A3B54B346</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\img\aptidoescompetencias.png" />
+    <None Include="wwwroot\img\austria.jpg" />
+    <None Include="wwwroot\img\background.jpg" />
+    <None Include="wwwroot\img\background2.jpg" />
+    <None Include="wwwroot\img\berlim.jpg" />
+    <None Include="wwwroot\img\biapt.jpg" />
+    <None Include="wwwroot\img\biapt2.jpg" />
+    <None Include="wwwroot\img\carol.jpg" />
+    <None Include="wwwroot\img\concurso.jpg" />
+    <None Include="wwwroot\img\expprofessional.png" />
+    <None Include="wwwroot\img\Foto medidas.jpg" />
+    <None Include="wwwroot\img\Foto.jpg" />
+    <None Include="wwwroot\img\fotocara.jpg" />
+    <None Include="wwwroot\img\funfacts.png" />
+    <None Include="wwwroot\img\habacademicas.png" />
+    <None Include="wwwroot\img\izifun.jpg" />
+    <None Include="wwwroot\img\madrid.jpg" />
+    <None Include="wwwroot\img\pampano.jpg" />
+    <None Include="wwwroot\img\paris.jpg" />
+    <None Include="wwwroot\img\saopaulo.jpg" />
+    <None Include="wwwroot\img\sobremim.png" />
+    <None Include="wwwroot\img\tryportugal.jpg" />
+  </ItemGroup>
+
+</Project>
