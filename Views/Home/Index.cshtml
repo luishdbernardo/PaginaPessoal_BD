@@ -1,8 +1,107 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- PAINEL INICIAL-->
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar rounded mb-5" src="img/fotocara.jpg" alt="Foto Luís Bernardo" />
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">bem vindo</h1>
+        <p><br /></p>
+
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading text-uppercase font-weight-light mb-0">À minha Página Pessoal</p>
+
+
+
+
+    </div>
+</header>
+<!-- OLÁ-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Olá</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-dark">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-lg-4 ml-auto"><p class="lead">Sou o <b>Luís Bernardo</b>, tenho 32 anos e sou natural da Covilhã. Actualmente, frequento o curso .NET do programa <a href="https://upskill.pt/" target="_blank">UPSKILL: Digital Skills & Jobs</a>, no Instituto Politécnico da Guarda.</p></div>
+            <div class="col-lg-4 mr-auto"><p class="lead">Convido-te a navegar pela minha página pessoal e a descobrir um pouco mais sobre mim. Ou se quiseres simplesmente, faz o download do meu CV simplificado!</p></div>
+        </div>
+        <!-- About Section Button-->
+        <div class="text-center mt-4">
+            <!--por link para google drive-->
+            <a class="btn btn-xl btn-outline-dark" href="CV/cv_luis_bernardo.pdf">
+                <i class="fas fa-download mr-2"></i>
+                Curriculum Vitae
+            </a>
+        </div>
+    </div>
+</section>
+<!-- About Section-->
+<!-- DESCOBRE MAIS SOBRE MIM-->
+<section class="page-section portfolio bg-pprimary text-white" id="portfolio">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Descobre mais</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <br /><br />
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-2 col-lg-2 col-xs-2">
+                    <a href="separadores/sobremim.html">
+                        <img src="~/img/sobremim.png" class="img-fluid rounded" id="imagemflutua"
+                             alt="Sobre Mim - Página Pessoal Luís Bernardo"
+                             title="Sobre Mim" />
+                    </a>
+                    <a id="titulos" href="separadores/sobremim.html"><p>Sobre <br />Mim</p></a>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xs-2">
+                    <a href="separadores/experienciaprofissional.html">
+                        <img src="~/img/expprofessional.png" class="img-fluid rounded" id="imagemflutua"
+                             alt="Experiência Profissional - Página Pessoal Luís Bernardo"
+                             title="Experiência Profissional" />
+                    </a>
+                    <a id="titulos" href="separadores/experienciaprofissional.html"><p>Experiência <br /> Profissional</p></a>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xs-2">
+                    <a href="separadores/habacademicas.html">
+                        <img src="~/img/habacademicas.png" class="img-fluid rounded" id="imagemflutua"
+                             alt="Habilitações Académicas - Página Pessoal Luís Bernardo"
+                             title="Habilitações Académicas" />
+                    </a>
+                    <a id="titulos" href="separadores/habacademicas.html"><p>Habilitações <br /> Académicas</p></a>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xs-2">
+                    <a href="separadores/aptidoescompetencias.html">
+                        <img src="~/img/aptidoescompetencias.png" class="img-fluid rounded" id="imagemflutua"
+                             alt="Aptidões e Competências - Página Pessoal Luís Bernardo"
+                             title="Aptidões e Competências" />
+                    </a>
+                    <a id="titulos" href="separadores/aptidoescompetencias.html"><p>Aptidões e <br /> Competências</p></a>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xs-2">
+                    <a href="separadores/funfacts.html">
+                        <img src="~/img/funfacts.png" class="img-fluid rounded" id="imagemflutua"
+                             alt="Fun Facts - Página Pessoal Luís Bernardo"
+                             title="Fun Facts" />
+                    </a>
+                    <a id="titulos" href="separadores/funfacts.html"><p>Fun<br />Facts</p></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
