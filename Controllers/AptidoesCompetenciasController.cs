@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaginaPessoal_BD.Controllers
 {
-    public class Sobremim : Controller
+    public class AptidoesCompetenciasController : Controller
     {
         public IActionResult Index()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaginaPessoal_BD.Controllers
 {
-    public class HabilitacoesAcademicas : Controller
+    public class FunFactsController : Controller
     {
         public IActionResult Index()
         {

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PaginaPessoal_BD.Models.Experiencia>
+
+@{
+    ViewData["Title"] = "Experiência Profissional";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Nova entrada</a>
+</p>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeEmpresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataFim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcoes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeEmpresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataInicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataFim)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Funcoes)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ExperienciaId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ExperienciaId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ExperienciaId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
