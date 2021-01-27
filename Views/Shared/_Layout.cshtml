@@ -16,28 +16,34 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="~/css/styles.css" rel="stylesheet" />
-    <link rel="~/stylesheet" href="css/site.css" />
+    <link href="~/css/site.css" rel="stylesheet"  />
 </head>
 @RenderBody()
 <body id="page-top">
     <!-- BARRA DE NAVEGAÇÃO-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="index.html">Luís Bernardo</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Luís Bernardo</a>
             <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav tamanholetra ml-auto">
-                    @*<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 <!--vai mais para cima ou para baixo--> px-5 px-lg-3 <!--mais afastados uns dos outros--> rounded js-scroll-trigger" href="separadores/sobremim.html">Sobre <br /> &nbsp;&nbsp;&nbsp;Mim</a></li>*@
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" asp-area="" asp-controller="Sobremim" asp-action="Sobremim">Sobre <br /> &nbsp;&nbsp;&nbsp;Mim</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-3 rounded js-scroll-trigger" href="separadores/experienciaprofissional.html">&nbsp;Experiência <br /> Profissional</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-3 rounded js-scroll-trigger" href="separadores/habacademicas.html">Habilitações <br /> &nbsp;Académicas</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-3 rounded js-scroll-trigger" href="separadores/aptidoescompetencias.html">&nbsp;&nbsp;&nbsp;Aptidões e <br />Competências</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-3 rounded js-scroll-trigger" href="separadores/funfacts.html">&nbsp;&nbsp;Fun <br />Facts</a></li>
+
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" asp-area="" asp-controller="Sobremim" asp-action="Index">Sobre <br /> &nbsp;&nbsp;&nbsp;Mim</a></li>
+
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-3 rounded" href="separadores/experienciaprofissional.html">&nbsp;Experiência <br /> Profissional</a></li>
+
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" asp-area="" asp-controller="HabilitacoesAcademicas" asp-action="Index">Habilitações <br /> &nbsp;Académicas</a></li>
+
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" asp-area="" asp-controller="AptidoesCompetencias" asp-action="Index">&nbsp;&nbsp;&nbsp;Aptidões e <br />Competências</a></li>
+
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" asp-area="" asp-controller="FunFacts" asp-action="Index">&nbsp;&nbsp;Fun <br />Facts</a></li>
+
+
                     @*<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>*@
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>*@
                 </ul>
             </div>
         </div>
