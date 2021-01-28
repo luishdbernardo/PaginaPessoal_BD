@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+ï»¿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
@@ -38,7 +38,7 @@ namespace PaginaPessoal_BD
                 options.SignIn.RequireConfirmedAccount = false;
 
                 //Password
-                options.Password.RequireDigit = true; //digito na password obrigatório
+                options.Password.RequireDigit = true; //digito na password obrigatï¿½rio
                 options.Password.RequireUppercase = true; //obriga a ter caracter maiusculo
                 options.Password.RequiredLength = 6; //minimo de 6 caracteres
             })
@@ -46,6 +46,9 @@ namespace PaginaPessoal_BD
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultUI();
             services.AddControllersWithViews();
+
+            services.AddDbContext<PaginaPessoalBDContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("PaginaPessoalBDContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,7 +81,7 @@ namespace PaginaPessoal_BD
                 endpoints.MapRazorPages();
             });
 
-            ApplicationDbContext.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
+            //ApplicationDbContext.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
         }
     }
 }

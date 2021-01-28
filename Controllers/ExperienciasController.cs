@@ -14,9 +14,9 @@ namespace PaginaPessoal_BD.Controllers
     
     public class ExperienciasController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly PaginaPessoalBDContext _context;
 
-        public ExperienciasController(ApplicationDbContext context)
+        public ExperienciasController(PaginaPessoalBDContext context)
         {
             _context = context;
         }

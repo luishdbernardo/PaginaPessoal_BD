@@ -15,6 +15,10 @@ namespace PaginaPessoal_BD.Models
         public string NomeEmpresa { get; set; }
 
         [Required(ErrorMessage = "Campo de preenchimento obrigatório")]
+        [Display(Name = "Cargo")]
+        public string Cargo { get; set; }
+
+        [Required(ErrorMessage = "Campo de preenchimento obrigatório")]
         [Display(Name = "Data de Inicio")]
         public DateTime DataInicio { get; set; }
 
