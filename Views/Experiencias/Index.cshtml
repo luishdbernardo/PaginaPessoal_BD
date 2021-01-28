@@ -4,56 +4,103 @@
     ViewData["Title"] = "Experiência Profissional";
 }
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 
-<p>
-    <a asp-action="Create" class="btn btn-success">Nova entrada</a>
-</p>
-<table class="table table-dark">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NomeEmpresa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataInicio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataFim)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Funcoes)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+
+<!-- OLÁ-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <!-- Contact Section Heading-->
+        <h1 class="topo page-section-heading text-center text-uppercase text-secondary mb-0">Experiência Profissional</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-dark">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <a asp-action="Create" class="btn btn-success">Nova entrada</a>
+
+        <!-- About Section Content-->
+        <div class="row">
+            <p class="lead">
+        </div>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomeEmpresa)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataInicio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataFim)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Funcoes)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ExperienciaId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ExperienciaId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ExperienciaId">Delete</a>
-                </td>
-            </tr>
+            <div>
+                <br /><br /><br />
+                <p>Empresa:</p>
+                <h4>@Html.DisplayFor(modelItem => item.NomeEmpresa)</h4>
+                <p>De</p>
+                <h5>De @Html.DisplayFor(modelItem => item.DataInicio) a @Html.DisplayFor(modelItem => item.DataFim)</h5>
+                <p>Data de Fim:</p>
+                <h5>@Html.DisplayFor(modelItem => item.DataFim)</h5>
+                <p>Funções:</p>
+                <h5>@Html.DisplayFor(modelItem => item.Funcoes)</h5>
+
+                <a class="btn btn-warning align-items-center" asp-action="Edit" asp-route-id="@item.ExperienciaId">Editar</a>
+                <a class="btn btn-info align-items-center" asp-action="Details" asp-route-id="@item.ExperienciaId">Detalhes</a>
+                <a class="btn btn-danger align-items-center" asp-action="Delete" asp-route-id="@item.ExperienciaId">Apagar</a>
+
+            </div>
         }
-    </tbody>
-</table>
+        @*<div>
+            <br /><br /><br />
+            <h3>Técnico de Marketing e Eventos</h3>
+            <h4>UPSTREAM – Valorização do território</h4>
+            <h5>Outubro 2018 - Julho 2019</h5> <br />
+            <p>Funções:</p>
+            <ul>
+                <li>Editar e gerir conteúdos nas plataformas digitais.</li>
+                <li>Gestão da comunicação da marca (Newsletters, Press Release, Comunicações, outras).</li>
+                <li>Gestão de conteúdos e redes sociais.</li>
+                <li>Criar, estruturar, desenvolver e promover serviços e produtos turísticos, e eventos desportivos.</li>
+                <li>Organização e participação em certames, conferências e feiras de turismo nacionais e internacionais.</li>
+                <li>Gestão de parceiros e operadores.</li>
+            </ul>
+
+        </div>
+
+        <div>
+            <br /><br /><br />
+            <h3>Técnico de Marketing</h3>
+            <h4>BIA.PT Marketplace – Comércio e Serviços online</h4>
+            <h5>Julho 2017 - Setembro 2018</h5> <br />
+            <p>Funções:</p>
+            <ul>
+                <li>Criação e implementação do plano de marketing e comunicação.</li>
+                <li>Desenvolvimento de campanhas multicanal direcionadas para e-commerce e e-marketplace.</li>
+                <li>Gestão de conteúdos e redes sociais.</li>
+                <li>Definir e implementar estratégias de marketing digital.</li>
+                <li>Criação e gestão de campanhas de tráfego pago (Google Ads, Facebook Ads, Instagram Ads).</li>
+            </ul>
+
+        </div>
+
+        <div>
+            <br /><br /><br />
+            <h3>Gestão de clientes e Assistente administrativo</h3>
+            <h4>INTERPREV – Segurança, higiene e saúde no trabalho</h4>
+            <h5>Novembro 2014 -Novembro 2016</h5> <br />
+            <p>Funções:</p>
+            <ul>
+                <li>Planeamento de meios técnicos de saúde no trabalho.</li>
+                <li>Acompanhamento e gestão de clientes.</li>
+                <li>Apoio administrativo e controlo de crédito.</li>
+                <li>Controlo e confirmação de faturas.</li>
+            </ul>
+
+        </div>
+
+        <div>
+            <br /><br /><br />
+            <h3>Customer Service Representative</h3>
+            <h4>TELEPERFORMANCE - Contact Center e CRM</h4>
+            <h5>Novembro 2011 - Outubro 2014</h5> <br />
+            <p>Funções:</p>
+            <ul>
+                <li>Serviço de apoio a clientes por telefone.</li>
+                <li>Operador de Back Office</li>
+            </ul>
+        </div>*@
+    </div>
+</section>
