@@ -45,7 +45,7 @@ namespace PaginaPessoal_BD.Controllers
             return View(experiencia);
         }
 
-        [Authorize]
+        //[Authorize]
         // GET: Experiencias/Create
         public IActionResult Create()
         {
@@ -68,7 +68,7 @@ namespace PaginaPessoal_BD.Controllers
             return View(experiencia);
         }
 
-        [Authorize]
+        //[Authorize]
         // GET: Experiencias/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -120,7 +120,7 @@ namespace PaginaPessoal_BD.Controllers
             return View(experiencia);
         }
 
-        [Authorize]
+        //[Authorize]
         // GET: Experiencias/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
