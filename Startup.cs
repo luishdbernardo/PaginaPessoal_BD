@@ -32,13 +32,24 @@ namespace PaginaPessoal_BD
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                //Sign in
+                options.SignIn.RequireConfirmedAccount = false;
+
+                //Password
+                options.Password.RequireDigit = true; //digito na password obrigatório
+                options.Password.RequireUppercase = true; //obriga a ter caracter maiusculo
+                options.Password.RequiredLength = 6; //minimo de 6 caracteres
+            })
+
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI();
             services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<IdentityUser>gestorUtilizadores)
         {
             if (env.IsDevelopment())
             {
@@ -66,6 +77,8 @@ namespace PaginaPessoal_BD
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            ApplicationDbContext.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
         }
     }
 }

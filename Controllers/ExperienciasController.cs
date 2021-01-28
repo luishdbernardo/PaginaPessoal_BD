@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using PaginaPessoal_BD.Models;
 
 namespace PaginaPessoal_BD.Controllers
 {
+    
     public class ExperienciasController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -43,6 +45,7 @@ namespace PaginaPessoal_BD.Controllers
             return View(experiencia);
         }
 
+        [Authorize]
         // GET: Experiencias/Create
         public IActionResult Create()
         {
@@ -65,6 +68,7 @@ namespace PaginaPessoal_BD.Controllers
             return View(experiencia);
         }
 
+        [Authorize]
         // GET: Experiencias/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -116,6 +120,7 @@ namespace PaginaPessoal_BD.Controllers
             return View(experiencia);
         }
 
+        [Authorize]
         // GET: Experiencias/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
