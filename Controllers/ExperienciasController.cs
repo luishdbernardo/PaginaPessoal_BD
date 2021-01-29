@@ -24,15 +24,15 @@ namespace PaginaPessoal_BD.Controllers
         // GET: Experiencias
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Experiencia.ToListAsync());
+            return View(await _context.Experiencia.ToListAsync()); 
         }
 
         // GET: Experiencias/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id) // O ponto de interrogação em (int?) diz que é opcional
         {
-            if (id == null)
+            if (id == null) // ir buscar o produto. se não encontrar devolve NotFound()
             {
-                return NotFound();
+                return View("Inexistente"); // estou a mandá-los para a view (página) Inexistente.
             }
 
             var experiencia = await _context.Experiencia
@@ -57,15 +57,15 @@ namespace PaginaPessoal_BD.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ExperienciaId,NomeEmpresa,DataInicio,DataFim,Funcoes")] Experiencia experiencia)
+        public async Task<IActionResult> Create([Bind("ExperienciaId,NomeEmpresa,Cargo,DataInicio,DataFim,Funcoes")] Experiencia experiencia)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) //valida o modelo. diz-me se é válido e apresenta o seguinte
             {
                 _context.Add(experiencia);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View("Sucesso");
             }
-            return View(experiencia);
+            return View(experiencia); // se não for válido, devolve isto
         }
 
         //[Authorize]
@@ -80,19 +80,19 @@ namespace PaginaPessoal_BD.Controllers
             var experiencia = await _context.Experiencia.FindAsync(id);
             if (experiencia == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
             return View(experiencia);
         }
 
-        // POST: Experiencias/Edit/5
+        // POST: Experiencias/Edit/5 AÇAO QUANDO SE MANDA GRAVAR UMA EXPERIENCIA
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ExperienciaId,NomeEmpresa,DataInicio,DataFim,Funcoes")] Experiencia experiencia)
+        public async Task<IActionResult> Edit(int id, [Bind("ExperienciaId,NomeEmpresa,Cargo,DataInicio,DataFim,Funcoes")] Experiencia experiencia)
         {
-            if (id != experiencia.ExperienciaId)
+            if (id != experiencia.ExperienciaId) //se o id não for igual à experienciaid acaba logo aqui
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace PaginaPessoal_BD.Controllers
                     _context.Update(experiencia);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (DbUpdateConcurrencyException) // Esta exepçao o que apanha é se duas pessoas estão a tentar editar o mesmo registo ao mesmo tempo
                 {
                     if (!ExperienciaExists(experiencia.ExperienciaId))
                     {
@@ -144,15 +144,17 @@ namespace PaginaPessoal_BD.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var experiencia = await _context.Experiencia.FindAsync(id);
+            var experiencia = await _context.Experiencia.FindAsync(id); // vai buscar a experiencia que estou a tentar encontrar
             _context.Experiencia.Remove(experiencia);
             await _context.SaveChangesAsync();
+
+            ViewBag.Mensage = "O produto foi eliminado com sucesso.";
             return RedirectToAction(nameof(Index));
         }
 
         private bool ExperienciaExists(int id)
         {
-            return _context.Experiencia.Any(e => e.ExperienciaId == id);
+            return _context.Experiencia.Any(e => e.ExperienciaId == id); // procura na base de dados se existe alguma experiencia com aquele id. O "e" poderia ser qualquer letra, ou até palavra. Associa a uma experiencia. Tamos aqui a definir a mesma. É como se fosse um "i" num ciclo for. É um lambda.
         }
     }
 }

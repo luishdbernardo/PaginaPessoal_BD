@@ -38,7 +38,7 @@ namespace PaginaPessoal_BD
                 options.SignIn.RequireConfirmedAccount = false;
 
                 //Password
-                options.Password.RequireDigit = true; //digito na password obrigat�rio
+                options.Password.RequireDigit = true; //digito na password obrigatorio
                 options.Password.RequireUppercase = true; //obriga a ter caracter maiusculo
                 options.Password.RequiredLength = 6; //minimo de 6 caracteres
             })
@@ -52,7 +52,7 @@ namespace PaginaPessoal_BD
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<IdentityUser>gestorUtilizadores)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PaginaPessoalBDContext context /*UserManager<IdentityUser>gestorUtilizadores*/)
         {
             if (env.IsDevelopment())
             {
@@ -82,6 +82,12 @@ namespace PaginaPessoal_BD
             });
 
             //ApplicationDbContext.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
+
+            if (env.IsDevelopment())
+            {
+                SeedData.PreencheDadosFicticiosExperiencia(context);
+            }
+
         }
     }
 }

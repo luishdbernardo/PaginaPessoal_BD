@@ -31,24 +31,24 @@
         <div class="row">
             <p class="lead">
         </div>
-        @foreach (var item in Model)
+        @foreach (var experiencia in Model)
         {
     <div>
         <br /><br /><br />
         <p>Empresa:</p>
-        <h4>@Html.DisplayFor(modelItem => item.NomeEmpresa)</h4>
+        <h4>@Html.DisplayFor(modelItem => experiencia.NomeEmpresa)</h4>
         <p>Cargo:</p>
-        <h4>@Html.DisplayFor(modelItem => item.Cargo)</h4>
+        <h4>@Html.DisplayFor(modelItem => experiencia.Cargo)</h4>
         <p>De</p>
-        <h5>De @Html.DisplayFor(modelItem => item.DataInicio) a @Html.DisplayFor(modelItem => item.DataFim)</h5>
+        <h5>De @Html.DisplayFor(modelItem => experiencia.DataInicio) a @Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
         <p>Data de Fim:</p>
-        <h5>@Html.DisplayFor(modelItem => item.DataFim)</h5>
+        <h5>@Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
         <p>Funções:</p>
-        <h5>@Html.DisplayFor(modelItem => item.Funcoes)</h5>
+        <h5>@Html.DisplayFor(modelItem => experiencia.Funcoes)</h5>
 
-        <a class="btn btn-warning align-items-center" asp-action="Edit" asp-route-id="@item.ExperienciaId">Editar</a>
-        <a class="btn btn-info align-items-center" asp-action="Details" asp-route-id="@item.ExperienciaId">Detalhes</a>
-        <a class="btn btn-danger align-items-center" asp-action="Delete" asp-route-id="@item.ExperienciaId">Apagar</a>
+        <a class="btn btn-warning align-items-center" asp-action="Edit" asp-route-id="@experiencia.ExperienciaId">Editar</a>
+        <a class="btn btn-info align-items-center" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Detalhes</a>
+        <a class="btn btn-danger align-items-center" asp-action="Delete" asp-route-id="@experiencia.ExperienciaId">Apagar</a>
 
     </div>
         }

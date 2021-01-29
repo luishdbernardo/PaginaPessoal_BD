@@ -1,0 +1,22 @@
+﻿@model PaginaPessoal_BD.Models.Experiencia
+
+@{
+    ViewData["Title"] = "Sucesso";
+}
+
+<!-- OLÁ-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <!-- Contact Section Heading-->
+        <h1 class="topo page-section-heading text-center text-uppercase text-secondary mb-0">Sucesso</h1>
+    </div>
+    <div class="card text-success mb-3">
+        <div class="card-body">
+            <h5 class="card-title">@ViewBag.Title</h5>
+            <p class="card-text">O novo registo foi adicionado com sucesso.</p>
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-primary" asp-action="Index">Voltar</a>  @*o asp-action o que faz é a ordem para ir para onde queremos, neste caso, voltar ao index. Seria o mesmo que href em HTML*@
+    </div>
+</section>
