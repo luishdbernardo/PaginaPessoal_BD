@@ -15,6 +15,8 @@ namespace PaginaPessoal_BD.Data
 
         private static void InsereExperienciasFicticias(PaginaPessoalBDContext context)
         {
+            //InsereExperienciasFicticiasParaTestes(context);
+
             if (context.Experiencia.Any()) return;
 
             context.Experiencia.AddRange(new Models.Experiencia[]
@@ -54,11 +56,37 @@ namespace PaginaPessoal_BD.Data
                     //DataInicio = 
                     //DataFim =
                     Funcoes = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+                },
+
+                new Models.Experiencia
+                {
+                    NomeEmpresa = "Lalali, SA",
+                    Cargo = "Manager",
+                    //DataInicio = 
+                    //DataFim =
+                    Funcoes = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
                 }
             });
 
             context.SaveChanges();
 
+        }
+
+        private static void InsereExperienciasFicticiasParaTestes(PaginaPessoalBDContext context)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                context.Experiencia.Add(new Models.Experiencia
+                {
+                    NomeEmpresa = "Empresa " + i,
+                    Cargo = "Gestor" + i,
+                    DataInicio = default,
+                    DataFim = default,
+                    Funcoes = "Monitorizar" + i
+                });
+            }
+
+            context.SaveChanges();
         }
     }
 }
