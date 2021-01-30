@@ -50,7 +50,7 @@ namespace PaginaPessoal_BD.Controllers
             return base.View(modelo); 
         }
 
-        [Authorize]
+        [Authorize(Roles = "admin, visitantes")]
         // GET: Experiencias/Details/5
         public async Task<IActionResult> Details(int? id) // O ponto de interrogação em (int?) diz que é opcional
         {
@@ -69,7 +69,7 @@ namespace PaginaPessoal_BD.Controllers
             return View(experiencia);
         }
 
-        [Authorize]
+        [Authorize(Roles = "admin")]
         // GET: Experiencias/Create
         public IActionResult Create()
         {
@@ -92,7 +92,7 @@ namespace PaginaPessoal_BD.Controllers
             return View(experiencia); // se não for válido, devolve isto
         }
 
-        //[Authorize]
+        [Authorize(Roles = "admin")]
         // GET: Experiencias/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -144,7 +144,7 @@ namespace PaginaPessoal_BD.Controllers
             return View(experiencia);
         }
 
-        //[Authorize]
+        [Authorize(Roles = "admin")]
         // GET: Experiencias/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
