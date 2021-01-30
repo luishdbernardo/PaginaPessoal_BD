@@ -22,19 +22,19 @@ namespace PaginaPessoal_BD.Controllers
         }
 
         // GET: Experiencias
-        public async Task<IActionResult> Index(int pagina = 1)
+        public async Task<IActionResult> Index(string nomePesquisa, int pagina = 1)
         {
-
 
             Paginacao paginacao = new Paginacao
             {
                 
-                TotalItems = await _context.Experiencia.CountAsync(),
+                TotalItems = await _context.Experiencia.Where(e => nomePesquisa == null || e.NomeEmpresa.Contains(nomePesquisa)).CountAsync(),
                 PaginaAtual = pagina
             };
 
-            List<Experiencia> experiencias = await _context.Experiencia
-                
+            List<Experiencia> experiencias = await _context.Experiencia.Where(e => nomePesquisa == null || e.NomeEmpresa.Contains(nomePesquisa))
+
+                .OrderByDescending(e => e.DataInicio)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1)) //para passar para os proximos registos
                 .Take(paginacao.ItemsPorPagina) //indicação de quantos registos vai buscar por pagina
                 .ToListAsync();
@@ -43,7 +43,8 @@ namespace PaginaPessoal_BD.Controllers
             ListaExperienciasVIewModel modelo = new ListaExperienciasVIewModel
             {
                 Paginacao = paginacao,
-                Experiencias = experiencias
+                Experiencias = experiencias,
+                NomePesquisa = nomePesquisa
             };
 
             return base.View(modelo); 

@@ -5,7 +5,6 @@
 }
 
 
-
 <!-- OLÁ-->
 <section class="page-section" id="contact">
     <div class="container">
@@ -18,13 +17,31 @@
             <div class="divider-custom-line"></div>
         </div>
 
-        <div class="card">
+        @*<div class="card">
             <div class="card-body" id="alinhamento">
                 <partial name="_LoginPartial" />
             </div>
+        </div>*@
+
+        <a asp-action="Create" class="btn btn-success mb-4">Nova entrada</a>
+
+
+        <div class="card border-info">
+            <div class="card-body">
+                <h5 class="card-title">Pesquisa</h5>
+                <form asp-action="Index" method="get">
+                    <div class="form-group">
+                        <label for="nomePesquisa" class="control-label">Nome a pesquisar</label>
+                        <input name="nomePesquisa" class="form-control" type="search" value="@Model.NomePesquisa" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Pesquisar" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary">Limpar</a>
+                    </div>
+                </form>
+            </div>
         </div>
 
-        <a asp-action="Create" class="btn btn-success">Nova entrada</a>
 
         @if (Model.Experiencias.Count() == 0)
         {
@@ -37,24 +54,25 @@
         </div>
         @foreach (var experiencia in Model.Experiencias)
         {
-            <div>
-                <br /><br /><br />
-                <p>Empresa:</p>
-                <h4>@Html.DisplayFor(modelItem => experiencia.NomeEmpresa)</h4>
-                <p>Cargo:</p>
-                <h4>@Html.DisplayFor(modelItem => experiencia.Cargo)</h4>
-                <p>De</p>
-                <h5>De @Html.DisplayFor(modelItem => experiencia.DataInicio) a @Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
-                <p>Data de Fim:</p>
-                <h5>@Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
-                <p>Funções:</p>
-                <h5>@Html.DisplayFor(modelItem => experiencia.Funcoes)</h5>
-
-                <a class="btn btn-warning align-items-center" asp-action="Edit" asp-route-id="@experiencia.ExperienciaId">Editar</a>
-                <a class="btn btn-info align-items-center" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Detalhes</a>
-                <a class="btn btn-danger align-items-center" asp-action="Delete" asp-route-id="@experiencia.ExperienciaId">Apagar</a>
-
-            </div>
+    <div class="mb-4">
+        <br /><br /><br />
+        <p>Empresa:</p>
+        <h4>@Html.DisplayFor(modelItem => experiencia.NomeEmpresa)</h4>
+        <p>Cargo:</p>
+        <h4>@Html.DisplayFor(modelItem => experiencia.Cargo)</h4>
+        <p>De</p>
+        <h5>De @Html.DisplayFor(modelItem => experiencia.DataInicio) a @Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
+        <p>Data de Fim:</p>
+        <h5>@Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
+        <p>Funções:</p>
+        <h5>@Html.DisplayFor(modelItem => experiencia.Funcoes)</h5>
+    </div>
+    <div class="pagination justify-content-center">
+        <a class="btn btn-warning align-items-center nav-item mx-0 mx-lg-1" asp-action="Edit" asp-route-id="@experiencia.ExperienciaId">Editar</a>
+        <a class="btn btn-info align-items-center nav-item mx-0 mx-lg-1" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Detalhes</a>
+        <a class="btn btn-danger align-items-center nav-item mx-0 mx-lg-1" asp-action="Delete" asp-route-id="@experiencia.ExperienciaId">Apagar</a>
+    </div>
+            
         }
     </div>
 </section>
@@ -62,7 +80,7 @@
 <!-- Paginação-->
 
 <nav>
-    <ul class="pagination justify-content-center">
+    <ul class="pagination justify-content-center mb-5">
 
         @{
             int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;

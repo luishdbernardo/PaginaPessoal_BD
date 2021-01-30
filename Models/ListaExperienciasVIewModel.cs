@@ -11,5 +11,7 @@ namespace PaginaPessoal_BD.Models
         public List<Experiencia> Experiencias { get; set; } //estou a passar para aqui a lista de experiencias
 
         public Paginacao Paginacao { get; set; }
+
+        public string NomePesquisa { get; set; }
     }
 }
