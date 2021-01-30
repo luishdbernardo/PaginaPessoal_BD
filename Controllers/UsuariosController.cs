@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,12 +15,15 @@ namespace PaginaPessoal_BD.Controllers
     public class UsuariosController : Controller
     {
         private readonly PaginaPessoalBDContext _context;
+        private readonly UserManager<IdentityUser> _gestorUtilizadores;
 
-        public UsuariosController(PaginaPessoalBDContext context)
+        public UsuariosController(PaginaPessoalBDContext context, UserManager<IdentityUser> gestorUtilizadores)
         {
             _context = context;
+            _gestorUtilizadores = gestorUtilizadores;
         }
 
+        [Authorize(Roles = "admin")]
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
@@ -54,15 +59,30 @@ namespace PaginaPessoal_BD.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Registo([Bind("UsuarioId,Nome,Email")] Usuario usuario)
+        public async Task<IActionResult> Registo(RegistoUsuarioViewModel infoUsuario)
         {
-            if (ModelState.IsValid)
+
+            IdentityUser utilizador = await _gestorUtilizadores.FindByNameAsync(infoUsuario.Email);
+
+            if (utilizador != null) { 
+            ModelState.AddModelError("Email", "Este e-mail já está registado.");
+            }
+
+            if (!ModelState.IsValid)
             {
-                _context.Add(usuario);
+                return View(infoUsuario);
+            }
+
+            
+            Usuario usuario = new Usuario
+            {
+                Nome = infoUsuario.Nome,
+                Email = infoUsuario.Email
+            };
+            
+                _context.Add(infoUsuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(usuario);
         }
 
         // GET: Usuarios/Edit/5

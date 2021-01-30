@@ -14,13 +14,17 @@ namespace PaginaPessoal_BD.Models
         [Required]
         [EmailAddress]
         [StringLength(256)]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
         [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required]
         [Compare("Password", ErrorMessage = "A Password não coincide")]
+        [Display(Name = "Repita a Password")]
+        [DataType(DataType.Password)]
         public string ConfirmarPassword { get; set; }
     }
 }
