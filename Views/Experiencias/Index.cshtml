@@ -26,7 +26,7 @@
 
         <a asp-action="Create" class="btn btn-success">Nova entrada</a>
 
-        @if (Model.Experiencias.Count() ==0)
+        @if (Model.Experiencias.Count() == 0)
         {
             <p>Não existem experiências para mostrar</p>
         }
@@ -37,29 +37,54 @@
         </div>
         @foreach (var experiencia in Model.Experiencias)
         {
-    <div>
-        <br /><br /><br />
-        <p>Empresa:</p>
-        <h4>@Html.DisplayFor(modelItem => experiencia.NomeEmpresa)</h4>
-        <p>Cargo:</p>
-        <h4>@Html.DisplayFor(modelItem => experiencia.Cargo)</h4>
-        <p>De</p>
-        <h5>De @Html.DisplayFor(modelItem => experiencia.DataInicio) a @Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
-        <p>Data de Fim:</p>
-        <h5>@Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
-        <p>Funções:</p>
-        <h5>@Html.DisplayFor(modelItem => experiencia.Funcoes)</h5>
+            <div>
+                <br /><br /><br />
+                <p>Empresa:</p>
+                <h4>@Html.DisplayFor(modelItem => experiencia.NomeEmpresa)</h4>
+                <p>Cargo:</p>
+                <h4>@Html.DisplayFor(modelItem => experiencia.Cargo)</h4>
+                <p>De</p>
+                <h5>De @Html.DisplayFor(modelItem => experiencia.DataInicio) a @Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
+                <p>Data de Fim:</p>
+                <h5>@Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
+                <p>Funções:</p>
+                <h5>@Html.DisplayFor(modelItem => experiencia.Funcoes)</h5>
 
-        <a class="btn btn-warning align-items-center" asp-action="Edit" asp-route-id="@experiencia.ExperienciaId">Editar</a>
-        <a class="btn btn-info align-items-center" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Detalhes</a>
-        <a class="btn btn-danger align-items-center" asp-action="Delete" asp-route-id="@experiencia.ExperienciaId">Apagar</a>
+                <a class="btn btn-warning align-items-center" asp-action="Edit" asp-route-id="@experiencia.ExperienciaId">Editar</a>
+                <a class="btn btn-info align-items-center" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Detalhes</a>
+                <a class="btn btn-danger align-items-center" asp-action="Delete" asp-route-id="@experiencia.ExperienciaId">Apagar</a>
 
-    </div>
+            </div>
         }
-        
     </div>
-
-    <p>A mostrar página @Model.Paginacao.PaginaAtual de @Model.Paginacao.TotalPaginas</p>
-
 </section>
 
+<!-- Paginação-->
+
+<nav>
+    <ul class="pagination justify-content-center">
+
+        @{
+            int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+            if (paginaInicial < 1) { paginaInicial = 1; }
+
+            int paginaFinal = Model.Paginacao.PaginaAtual + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+            if (paginaFinal > Model.Paginacao.TotalPaginas) { paginaFinal = Model.Paginacao.TotalPaginas; }
+        }
+
+        <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disable" : "")">
+            <a class="page-link" asp-action="Index" asp-route-pagina="1">Primeira</a>
+        </li>
+
+        @for (int i = paginaInicial; i <= paginaFinal; i++)
+        {
+            <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
+                <a class="page-link" asp-action="Index" asp-route-pagina="@i">@i</a>
+            </li>
+        }
+
+        <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas ? "disable" : "")">
+            <a class="page-link" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas">Última</a>
+        </li>
+    </ul>
+</nav>

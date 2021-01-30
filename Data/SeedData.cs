@@ -36,6 +36,24 @@ namespace PaginaPessoal_BD.Data
                     //DataInicio = 
                     //DataFim =
                     Funcoes = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+                },
+
+                new Models.Experiencia
+                {
+                    NomeEmpresa = "Lorium, SA",
+                    Cargo = "Marketeer",
+                    //DataInicio = 
+                    //DataFim =
+                    Funcoes = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+                },
+
+                new Models.Experiencia
+                {
+                    NomeEmpresa = "Lalala, SA",
+                    Cargo = "Manager",
+                    //DataInicio = 
+                    //DataFim =
+                    Funcoes = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
                 }
             });
 
