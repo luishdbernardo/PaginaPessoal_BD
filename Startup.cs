@@ -30,12 +30,13 @@ namespace PaginaPessoal_BD
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
                 //Sign in
-                options.SignIn.RequireConfirmedAccount = false;
+                options.SignIn.RequireConfirmedAccount = false; //para não ser preciso por exemplo validação por e-amil
 
                 //Password
                 options.Password.RequireDigit = true; //digito na password obrigatorio
@@ -52,7 +53,7 @@ namespace PaginaPessoal_BD
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PaginaPessoalBDContext context /*UserManager<IdentityUser>gestorUtilizadores*/)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PaginaPessoalBDContext context, UserManager<IdentityUser> gestorUtilizadores)
         {
             if (env.IsDevelopment())
             {
@@ -81,7 +82,8 @@ namespace PaginaPessoal_BD
                 endpoints.MapRazorPages();
             });
 
-            //ApplicationDbContext.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
+            
+            SeedData.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
 
             if (env.IsDevelopment())
             {

@@ -68,7 +68,7 @@ namespace PaginaPessoal_BD.Controllers
             return View(experiencia);
         }
 
-        //[Authorize]
+        [Authorize]
         // GET: Experiencias/Create
         public IActionResult Create()
         {
