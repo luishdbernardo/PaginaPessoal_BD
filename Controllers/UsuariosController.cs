@@ -68,11 +68,22 @@ namespace PaginaPessoal_BD.Controllers
             ModelState.AddModelError("Email", "Este e-mail já está registado.");
             }
 
+            utilizador = new IdentityUser(infoUsuario.Email);
+            IdentityResult resultado = await _gestorUtilizadores.CreateAsync(utilizador, infoUsuario.Password);
+            if (!resultado.Succeeded)
+            {
+                ModelState.AddModelError("", "Não foi possível fazer o registo. Tente novamente mais tarde");
+            }
+            else
+            {
+                await _gestorUtilizadores.AddToRoleAsync(utilizador, "Usuario");
+            }
+
+
             if (!ModelState.IsValid)
             {
                 return View(infoUsuario);
             }
-
             
             Usuario usuario = new Usuario
             {
@@ -82,7 +93,7 @@ namespace PaginaPessoal_BD.Controllers
             
                 _context.Add(infoUsuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details));
         }
 
         // GET: Usuarios/Edit/5
