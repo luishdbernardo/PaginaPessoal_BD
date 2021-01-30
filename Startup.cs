@@ -53,7 +53,7 @@ namespace PaginaPessoal_BD
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PaginaPessoalBDContext context, UserManager<IdentityUser> gestorUtilizadores)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PaginaPessoalBDContext context, UserManager<IdentityUser> gestorUtilizadores, RoleManager<IdentityRole> gestorRoles)
         {
             if (env.IsDevelopment())
             {
@@ -82,12 +82,13 @@ namespace PaginaPessoal_BD
                 endpoints.MapRazorPages();
             });
 
-            
+            SeedData.InsereRolesAsync(gestorRoles).Wait();  //wait no fim da função é para a não tornar asincrona
             SeedData.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
 
             if (env.IsDevelopment())
             {
                 SeedData.PreencheDadosFicticiosExperiencia(context);
+                SeedData.InsereUsuariosFicticiosAsync(gestorUtilizadores).Wait();
             }
 
         }

@@ -50,6 +50,7 @@ namespace PaginaPessoal_BD.Controllers
             return base.View(modelo); 
         }
 
+        [Authorize]
         // GET: Experiencias/Details/5
         public async Task<IActionResult> Details(int? id) // O ponto de interrogação em (int?) diz que é opcional
         {
