@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PaginaPessoal_BD.Models.Experiencia>
+﻿@model ListaExperienciasVIewModel
 
 @{
     ViewData["Title"] = "Experiência Profissional";
@@ -26,12 +26,16 @@
 
         <a asp-action="Create" class="btn btn-success">Nova entrada</a>
 
-        
+        @if (Model.Experiencias.Count() ==0)
+        {
+            <p>Não existem experiências para mostrar</p>
+        }
+
         <!-- About Section Content-->
         <div class="row">
             <p class="lead">
         </div>
-        @foreach (var experiencia in Model)
+        @foreach (var experiencia in Model.Experiencias)
         {
     <div>
         <br /><br /><br />
@@ -54,4 +58,8 @@
         }
         
     </div>
+
+    <p>A mostrar página @Model.Paginacao.PaginaAtual de @Model.Paginacao.TotalPaginas</p>
+
 </section>
+

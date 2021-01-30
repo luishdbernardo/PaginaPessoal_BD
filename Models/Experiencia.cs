@@ -20,9 +20,11 @@ namespace PaginaPessoal_BD.Models
 
         [Required(ErrorMessage = "Campo de preenchimento obrigatório")]
         [Display(Name = "Data de Inicio")]
+        [DataType(DataType.Date)]
         public DateTime DataInicio { get; set; }
 
         [Display(Name = "Data de Fim")]
+        [DataType(DataType.Date)]
         public DateTime DataFim { get; set; }
 
         [Display(Name = "Funções")]
