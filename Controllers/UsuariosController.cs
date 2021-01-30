@@ -44,7 +44,7 @@ namespace PaginaPessoal_BD.Controllers
         }
 
         // GET: Usuarios/Create
-        public IActionResult Create()
+        public IActionResult Registo()
         {
             return View();
         }
@@ -54,7 +54,7 @@ namespace PaginaPessoal_BD.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UsuarioId,Nome,Email")] Usuario usuario)
+        public async Task<IActionResult> Registo([Bind("UsuarioId,Nome,Email")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
