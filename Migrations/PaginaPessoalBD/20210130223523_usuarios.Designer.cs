@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PaginaPessoal_BD.Data;
 
 namespace PaginaPessoal_BD.Migrations.PaginaPessoalBD
 {
     [DbContext(typeof(PaginaPessoalBDContext))]
-    partial class PaginaPessoalBDContextModelSnapshot : ModelSnapshot
+    [Migration("20210130223523_usuarios")]
+    partial class usuarios
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

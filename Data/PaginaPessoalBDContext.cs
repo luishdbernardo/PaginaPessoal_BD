@@ -15,5 +15,7 @@ namespace PaginaPessoal_BD.Data
         }
 
         public DbSet<PaginaPessoal_BD.Models.Experiencia> Experiencia { get; set; }
+
+        public DbSet<PaginaPessoal_BD.Models.Usuario> Usuario { get; set; }
     }
 }
