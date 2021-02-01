@@ -68,9 +68,16 @@
         <h5>@Html.DisplayFor(modelItem => experiencia.Funcoes)</h5>
     </div>
     <div class="pagination justify-content-center">
-        <a class="btn btn-warning align-items-center nav-item mx-0 mx-lg-1" asp-action="Edit" asp-route-id="@experiencia.ExperienciaId">Editar</a>
-        <a class="btn btn-info align-items-center nav-item mx-0 mx-lg-1" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Detalhes</a>
-        <a class="btn btn-danger align-items-center nav-item mx-0 mx-lg-1" asp-action="Delete" asp-route-id="@experiencia.ExperienciaId">Apagar</a>
+        @if (User.IsInRole("admin"))
+        {
+            <a class="btn btn-warning align-items-center nav-item mx-0 mx-lg-1" asp-action="Edit" asp-route-id="@experiencia.ExperienciaId">Editar</a>
+            <a class="btn btn-danger align-items-center nav-item mx-0 mx-lg-1" asp-action="Delete" asp-route-id="@experiencia.ExperienciaId">Apagar</a>
+            <a class="btn btn-info align-items-center nav-item mx-0 mx-lg-1" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Detalhes</a>
+        }
+        @if (User.IsInRole("visitantes"))
+        {
+            <a class="btn btn-info align-items-center nav-item mx-0 mx-lg-1" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Detalhes</a>
+        }
     </div>
             
         }

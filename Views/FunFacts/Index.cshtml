@@ -13,82 +13,86 @@
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
-        <!-- About Section Content-->
-        <br /><br /><br />
-        <div class="row">
-            <div class="col-md-12">
-                <div class="demo-content"></div>
-                <h2 id="h2size"><i class="fas fa-carrot"></i>&nbsp;&nbsp;Verduras</h2><br />
-                <h6>Não sou grande fã de tudo o que seja verde...</h6>
-                <p>
-                    Refiro-me claro está a legumes, vegetais e afins!<br /> Cenoura e alface são dos poucos que consigo comer.
-                    <br /> Tudo o resto dispenso!
-                </p>
-            </div>
+        @if (User.IsInRole("admin") || User.IsInRole("visitantes"))
+        {
+            <!-- About Section Content-->
+            <br /><br /><br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="demo-content"></div>
+                    <h2 id="h2size"><i class="fas fa-carrot"></i>&nbsp;&nbsp;Verduras</h2><br />
+                    <h6>Não sou grande fã de tudo o que seja verde...</h6>
+                    <p>
+                        Refiro-me claro está a legumes, vegetais e afins!<br /> Cenoura e alface são dos poucos que consigo comer.
+                        <br /> Tudo o resto dispenso!
+                    </p>
+                </div>
 
-            <div class="col-md-12" id="alinhamento">
-                <div class="demo-content bg-alt"></div>
-                <h2 id="h2size">Arbitragem&nbsp;&nbsp;<i class="fas fa-futbol"></i></h2> <br /> <br />
-                <h6>Sou árbitro de futebol de 11..ou melhor tenho o curso.</h6>
-                <p>
-                    Corria o ano de 2012 e tirei o curso de árbitro.<br /> Mas a verdade é que só tenho mesmo o diploma, porque nunca arbitrei!
-                    <br /> Quando ia iniciar a minha incrível carreira de árbitro, sofri uma lesão que me atirou para as "boxes" <br />durante algum tempo...e esta incrível promessa, nunca se concretizou!
-                </p>
-                <br /><br />
-            </div>
+                <div class="col-md-12" id="alinhamento">
+                    <div class="demo-content bg-alt"></div>
+                    <h2 id="h2size">Arbitragem&nbsp;&nbsp;<i class="fas fa-futbol"></i></h2> <br /> <br />
+                    <h6>Sou árbitro de futebol de 11..ou melhor tenho o curso.</h6>
+                    <p>
+                        Corria o ano de 2012 e tirei o curso de árbitro.<br /> Mas a verdade é que só tenho mesmo o diploma, porque nunca arbitrei!
+                        <br /> Quando ia iniciar a minha incrível carreira de árbitro, sofri uma lesão que me atirou para as "boxes" <br />durante algum tempo...e esta incrível promessa, nunca se concretizou!
+                    </p>
+                    <br /><br />
+                </div>
 
-            <div class="col-md-12">
-                <div class="demo-content"></div>
-                <h2 id="h2size"><i class="fas fa-tv"></i>&nbsp;&nbsp;TV Star</h2><br />
-                <h6>Sim sou eu! Lá tive os meus 5 minutos de fama!</h6>
-                <p>
-                    Mesmo antes de aparecer por aí o vírus chinês (como o outro lhe chama)<br />
-                    Fui um dos participantes de um concurso televisivo da RTP chamado Jogo de Todos os Jogos (Game of Games da Ellen) <br />
-                    Além de ter sido uma grande experiência e o concretizar de um sonho, não me correu nada mal...<br />
-                    Pois é, além de ter andado com a Filomena Cautela ao colo, não é que aqui o menino ganhou aquilo...Fácil!<br />
-                </p>
-                <br /><br />
-            </div>
+                <div class="col-md-12">
+                    <div class="demo-content"></div>
+                    <h2 id="h2size"><i class="fas fa-tv"></i>&nbsp;&nbsp;TV Star</h2><br />
+                    <h6>Sim sou eu! Lá tive os meus 5 minutos de fama!</h6>
+                    <p>
+                        Mesmo antes de aparecer por aí o vírus chinês (como o outro lhe chama)<br />
+                        Fui um dos participantes de um concurso televisivo da RTP chamado Jogo de Todos os Jogos (Game of Games da Ellen) <br />
+                        Além de ter sido uma grande experiência e o concretizar de um sonho, não me correu nada mal...<br />
+                        Pois é, além de ter andado com a Filomena Cautela ao colo, não é que aqui o menino ganhou aquilo...Fácil!<br />
+                    </p>
+                    <br /><br />
+                </div>
 
-            <div class="col-md-12" id="alinhamento">
-                <div class="demo-content bg-alt"></div>
-                <h2 id="h2size">Wikipedia&nbsp;&nbsp;<i class="fab fa-wikipedia-w"></i></h2> <br /> <br />
-                <h6>Esta é mesmo muito engraçada...</h6>
-                <p>
-                    Ainda a Wikipedia dava os primeiros passos, descobri que não havia nenhum conteúdo sobre a magnífica Vila de Boidobra<br />
-                    Então resolvi euzinho escrever lá texto e criar conteúdo sobre a Boidobra <br />
-                    Resultado: a Boidobra era um condado, eu era o Rei, e o resto pura comédia<br />
-                    Deu para mostrar ainda a várias pessoas e até foi engraçado... até que alguém corrigiu! Malandros!!<br />
-                </p><br /><br />
-            </div>
-            <div class="col-md-12">
-                <div class="demo-content"></div>
-                <h2 id="h2size"><i class="fas fa-bus"></i>&nbsp;&nbsp;Transportes</h2><br />
-                <h6>Isto não é nada bom...</h6>
-                <p>
-                    Muito resumidamente, já perdi aviões, comboios, autocarros, o meu próprio carro...É triste!<br />
-                    Mas nem tudo foi mau. Uma das vezes que perdi o autocarro, que me ia levar ao comboio, que me ia levar ao avião, <br />
-                    Disse basta, comprei um bilhete de Inter-Rail e andei 15 dias a viajar pela Europa! Experiência muito curiosa, <br />
-                    Onde também me aconteceram mil e uma peripécias...mas ficam para outro dia.
-                </p><br />
-            </div>
-            <div class="col-md-12" id="alinhamento">
-                <div class="demo-content bg-alt"></div>
-                <h2 id="h2size">IURD&nbsp;&nbsp;<i class="fas fa-church"></i></h2> <br /> <br />
-                <h6>Calma! Não sou, nem quero ser!</h6>
-                <p>
-                    Quando se é jovem, é se pouco inteligente. É facto!<br />
-                    Ora bem, ouve uma vez em que um amigo me liga numa sexta-feira à noite, com a história:<br />
-                    "Olha amanhã vai haver uma excursão a Coimbra, para um encontro de estudantes. <br />Coisa altamente, com muito pessoal, alcool e raparigas bonitas
-                    Queres vir?"<br />
-                    Resumo do triste final: depois de acordar as 6H de um Sábado, ter passado quase 4H num autocarro, lá chegámos a Coimbra!<br />
-                    O encontro de estudantes, nem vê-lo! O álcool, nem bebê-lo! As <del>raparigas</del> senhoras, nem...<br />
-                    Na verdade tinha sido levado para um encontro sim da IURD (Reino Universal do Reino de Deus). <br />
-                    Na minha inocência fui enganado! Nem vos digo nem vos conto! Estão a ver aquelas cenas a que assistios na TV/NET do "sai demónio, sai!"<br />
-                    ou do "levanta-te e anda"? Pois é, sem saber bem como, de um momento para o outro, lá estava eu dentro de um filme desses de terror!
-                </p>
-            </div>
+                <div class="col-md-12" id="alinhamento">
+                    <div class="demo-content bg-alt"></div>
+                    <h2 id="h2size">Wikipedia&nbsp;&nbsp;<i class="fab fa-wikipedia-w"></i></h2> <br /> <br />
+                    <h6>Esta é mesmo muito engraçada...</h6>
+                    <p>
+                        Ainda a Wikipedia dava os primeiros passos, descobri que não havia nenhum conteúdo sobre a magnífica Vila de Boidobra<br />
+                        Então resolvi euzinho escrever lá texto e criar conteúdo sobre a Boidobra <br />
+                        Resultado: a Boidobra era um condado, eu era o Rei, e o resto pura comédia<br />
+                        Deu para mostrar ainda a várias pessoas e até foi engraçado... até que alguém corrigiu! Malandros!!<br />
+                    </p><br /><br />
+                </div>
+                <div class="col-md-12">
+                    <div class="demo-content"></div>
+                    <h2 id="h2size"><i class="fas fa-bus"></i>&nbsp;&nbsp;Transportes</h2><br />
+                    <h6>Isto não é nada bom...</h6>
+                    <p>
+                        Muito resumidamente, já perdi aviões, comboios, autocarros, o meu próprio carro...É triste!<br />
+                        Mas nem tudo foi mau. Uma das vezes que perdi o autocarro, que me ia levar ao comboio, que me ia levar ao avião, <br />
+                        Disse basta, comprei um bilhete de Inter-Rail e andei 15 dias a viajar pela Europa! Experiência muito curiosa, <br />
+                        Onde também me aconteceram mil e uma peripécias...mas ficam para outro dia.
+                    </p><br />
+                </div>
+                <div class="col-md-12" id="alinhamento">
+                    <div class="demo-content bg-alt"></div>
+                    <h2 id="h2size">IURD&nbsp;&nbsp;<i class="fas fa-church"></i></h2> <br /> <br />
+                    <h6>Calma! Não sou, nem quero ser!</h6>
+                    <p>
+                        Quando se é jovem, é se pouco inteligente. É facto!<br />
+                        Ora bem, ouve uma vez em que um amigo me liga numa sexta-feira à noite, com a história:<br />
+                        "Olha amanhã vai haver uma excursão a Coimbra, para um encontro de estudantes. <br />Coisa altamente, com muito pessoal, alcool e raparigas bonitas
+                        Queres vir?"<br />
+                        Resumo do triste final: depois de acordar as 6H de um Sábado, ter passado quase 4H num autocarro, lá chegámos a Coimbra!<br />
+                        O encontro de estudantes, nem vê-lo! O álcool, nem bebê-lo! As <del>raparigas</del> senhoras, nem...<br />
+                        Na verdade tinha sido levado para um encontro sim da IURD (Reino Universal do Reino de Deus). <br />
+                        Na minha inocência fui enganado! Nem vos digo nem vos conto! Estão a ver aquelas cenas a que assistios na TV/NET do "sai demónio, sai!"<br />
+                        ou do "levanta-te e anda"? Pois é, sem saber bem como, de um momento para o outro, lá estava eu dentro de um filme desses de terror!
+                    </p>
+                </div>
 
-        </div>
-        </div>
+            </div>}
+        else
+        {<p>Precisa estar registado para ter acesso a esta informação! </p>}
+    </div>
 </section>
