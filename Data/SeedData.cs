@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using PaginaPessoal_BD.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +11,35 @@ namespace PaginaPessoal_BD.Data
     {
         private const string NOME_UTILIZADOR_ADMINISTRADOR_PADRAO = "admin@lhdb.pt";
         private const string PASSWORD_UTILIZADOR_ADMIN_PADRAO = "Qwerty_1";
+
+        private const string NOME_VISITANTE_FICTICIO = "miguel@hotmail.pt";
+        private const string PASSWORD_VISITANTE_FICTICIO = "Qwerty_1";
+
         private const string ROLE_ADMIN = "admin";
         private const string ROLE_USUARIOS = "usuarios";
         private const string ROLE_VISITANTES = "visitantes";
+        
 
         internal static void PreencheDadosFicticiosExperiencia(PaginaPessoalBDContext context)
         {
             InsereExperienciasFicticias(context);
+            InsereUsuariosFicticios(context);
+            
+        }
+
+        private static void InsereUsuariosFicticios(PaginaPessoalBDContext context)
+        {
+            if(!context.Usuario.Any(u => u.Email == NOME_VISITANTE_FICTICIO))
+            {
+                Usuario u = new Usuario
+                {
+                    Nome = "Miguel",
+                    Email = NOME_VISITANTE_FICTICIO
+                };
+
+                context.Usuario.Add(u);
+                context.SaveChanges();
+            }
         }
 
         private static void InsereExperienciasFicticias(PaginaPessoalBDContext context)
@@ -89,7 +112,7 @@ namespace PaginaPessoal_BD.Data
 
         internal static async Task InsereUsuariosFicticiosAsync(UserManager<IdentityUser> gestorUtilizadores)
         {
-            IdentityUser visitante = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, "miguel@hotmail.pt", "Qwerty_1");
+            IdentityUser visitante = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_VISITANTE_FICTICIO, PASSWORD_VISITANTE_FICTICIO);
             await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, visitante, ROLE_VISITANTES);
         }
 
