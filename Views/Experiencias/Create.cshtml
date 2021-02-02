@@ -3,55 +3,59 @@
 @{
     ViewData["Title"] = "Create";
 }
+<section class="page-section">
+    <div class="container">
+        
+            <h1>Create</h1>
 
-<h1>Create</h1>
+            <h4>Experiencia</h4>
+            <hr />
+            
+                <div class="col-md-8">
+                    <form asp-action="Create" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="NomeEmpresa" class="control-label"></label>
+                            <input asp-for="NomeEmpresa" class="form-control" />
+                            <span asp-validation-for="NomeEmpresa" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Cargo" class="control-label"></label>
+                            <input asp-for="Cargo" class="form-control" />
+                            <span asp-validation-for="Cargo" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DataInicio" class="control-label"></label>
+                            <input asp-for="DataInicio" class="form-control" />
+                            <span asp-validation-for="DataInicio" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DataFim" class="control-label"></label>
+                            <input asp-for="DataFim" class="form-control" />
+                            <span asp-validation-for="DataFim" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Funcoes" class="control-label"></label>
+                            <input asp-for="Funcoes" class="form-control" />
+                            <span asp-validation-for="Funcoes" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="fotoFicheiro" class="control-label">Imagem</label>
+                            <input name="fotoFicheiro" class="form-control-file" type="file" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
 
-<h4>Experiencia</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="NomeEmpresa" class="control-label"></label>
-                <input asp-for="NomeEmpresa" class="form-control" />
-                <span asp-validation-for="NomeEmpresa" class="text-danger"></span>
+            <div>
+                <a asp-action="Index">Back to List</a>
             </div>
-            <div class="form-group">
-                <label asp-for="Cargo" class="control-label"></label>
-                <input asp-for="Cargo" class="form-control" />
-                <span asp-validation-for="Cargo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataInicio" class="control-label"></label>
-                <input asp-for="DataInicio" class="form-control" />
-                <span asp-validation-for="DataInicio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataFim" class="control-label"></label>
-                <input asp-for="DataFim" class="form-control" />
-                <span asp-validation-for="DataFim" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Funcoes" class="control-label"></label>
-                <input asp-for="Funcoes" class="form-control" />
-                <span asp-validation-for="Funcoes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label for="fotoFicheiro" class="control-label">Imagem</label>
-                <input name="fotoFicheiro" class="form-control-file" type="file"/>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+            
+        
+    </section>
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }
