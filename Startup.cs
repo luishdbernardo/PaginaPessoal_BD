@@ -45,7 +45,7 @@ namespace PaginaPessoal_BD
             })
 
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultUI();
+                .AddDefaultUI(); //adiciona o User Interface (o que possibilita o Registo e Login)
             services.AddControllersWithViews();
 
             services.AddDbContext<PaginaPessoalBDContext>(options =>

@@ -17,12 +17,21 @@
 }
 else
 {
-<li class="nav-item">
-    <a class="nav-link text-dark" asp-controller="Usuarios" asp-action="Registo">Registar</a>
+<li class="nav-item mx-0 mx-lg-1">
+    <table>
+        <tr>
+            <th><a class="nav-link py-3 px-0 px-lg-3 rounded" asp-controller="Usuarios" asp-action="Registo">Registar</a></th>
+        </tr>
+        <tr>
+            <td><a class="nav-link py-3 px-0 px-lg-3 rounded" asp-controller="Usuarios" asp-action="Registo">Registar</a></td>
+            <td><a class="nav-link py-3 px-0 px-lg-3 rounded" asp-area="Identity" asp-page="/Account/Login">Login</a></td>
+        </tr>
+    </table>
+    @*<a class="nav-link py-3 px-0 px-lg-3 rounded" asp-controller="Usuarios" asp-action="Registo">Registar</a>*@
     @*<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Registar</a>*@
 </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
+    @*<li class="nav-item mx-0 mx-lg-1">
+        <a class="nav-link py-3 px-0 px-lg-3 rounded" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>*@
 }
 </ul>
