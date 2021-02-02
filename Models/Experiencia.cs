@@ -29,5 +29,8 @@ namespace PaginaPessoal_BD.Models
 
         [Display(Name = "Funções")]
         public string Funcoes { get; set; }
+
+        public byte[] Foto { get; set; }
+
     }
 }

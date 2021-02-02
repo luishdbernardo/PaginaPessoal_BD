@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -81,7 +83,7 @@ namespace PaginaPessoal_BD.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ExperienciaId,NomeEmpresa,Cargo,DataInicio,DataFim,Funcoes")] Experiencia experiencia)
+        public async Task<IActionResult> Create([Bind("ExperienciaId,NomeEmpresa,Cargo,DataInicio,DataFim,Funcoes")] Experiencia experiencia, IFormFile fotoFicheiro)
         {
             if (ModelState.IsValid) //valida o modelo. diz-me se é válido e apresenta o seguinte
             {
@@ -89,6 +91,20 @@ namespace PaginaPessoal_BD.Controllers
                 await _context.SaveChangesAsync();
                 return View("Sucesso");
             }
+
+            //se o ficheiro da foto é diferente de nulo, ou seja, se tem lá uma foto. E se tem um tamanho de bites maior que zero
+            if(fotoFicheiro != null && fotoFicheiro.Length > 0)
+            {
+                using (var ficheiroMemoria = new MemoryStream()) // o using faz com que qdo não precisar disto, vai desaparecer da memória
+                {
+                    fotoFicheiro.CopyTo(ficheiroMemoria); //estamos a passar o ficheiro que está do lado do usuario para o servidor
+                    experiencia.Foto = ficheiroMemoria.ToArray(); 
+                }
+            }
+
+            _context.Add(experiencia);
+            await _context.SaveChangesAsync();
+
             return View(experiencia); // se não for válido, devolve isto
         }
 
