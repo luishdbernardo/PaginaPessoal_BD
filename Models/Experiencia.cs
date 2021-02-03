@@ -19,7 +19,7 @@ namespace PaginaPessoal_BD.Models
         public string Cargo { get; set; }
 
         [Required(ErrorMessage = "Campo de preenchimento obrigatório")]
-        [Display(Name = "Data de Inicio")]
+        [Display(Name = "Data de Início")]
         [DataType(DataType.Date)]
         public DateTime DataInicio { get; set; }
 

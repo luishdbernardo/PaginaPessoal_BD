@@ -1,42 +1,73 @@
 ﻿@model PaginaPessoal_BD.Models.Experiencia
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>Experiencia</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NomeEmpresa)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NomeEmpresa)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataInicio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataInicio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataFim)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataFim)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Funcoes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Funcoes)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ExperienciaId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<!-- OLÁ-->
+<section class="page-section mt-lg-4" id="contact">
+    <div class="container">
+        <!-- Contact Section Heading-->
+        <h1 class="topo page-section-heading text-center text-uppercase text-secondary mb-0">Detalhes</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-dark mb-5">
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <h4>Detalhes da Experiência Profissional</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.NomeEmpresa)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.NomeEmpresa)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.DataInicio)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.DataInicio)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.DataFim)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.DataFim)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Funcoes)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Funcoes)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Outras Informações
+                        </dt>
+                        <dd class="col-sm-10">
+                            a, b c, d
+                        </dd>
+                    </dl>
+                </div>
+                @if (User.IsInRole("admin"))
+                {
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@Model.ExperienciaId">Editar</a> |
+                        <a asp-action="Index">Voltar</a>
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        <a asp-action="Index">Voltar</a>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
