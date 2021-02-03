@@ -6,12 +6,12 @@
 
 
 <!-- OLÁ-->
-<section class="page-section" id="contact">
+<section class="page-section mt-lg-5" id="contact">
     <div class="container">
         <!-- Contact Section Heading-->
         <h1 class="topo page-section-heading text-center text-uppercase text-secondary mb-0">Experiência Profissional</h1>
         <!-- Icon Divider-->
-        <div class="divider-custom divider-dark">
+        <div class="divider-custom divider-dark mb-5">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
@@ -23,15 +23,14 @@
             </div>
         </div>*@
 
-        <a asp-action="Create" class="btn btn-success mb-4">Nova entrada</a>
+        <a asp-action="Create" class="btn btn-success mb-5">Nova entrada</a>
 
 
-        <div class="card border-info">
+        <div class="card border-info mb-5">
             <div class="card-body">
-                <h5 class="card-title">Pesquisa</h5>
                 <form asp-action="Index" method="get">
                     <div class="form-group">
-                        <label for="nomePesquisa" class="control-label">Nome a pesquisar</label>
+                        <h5><label for="nomePesquisa" class="control-label">Nome a pesquisar</label></h5>
                         <input name="nomePesquisa" class="form-control" type="search" value="@Model.NomePesquisa" />
                     </div>
                     <div class="form-group">
@@ -52,28 +51,26 @@
         <div class="row">
             <p class="lead">
         </div>
+
         @foreach (var experiencia in Model.Experiencias)
         {
-    <div class="mb-4">
-        
-
+         <div class="mb-4">
        
         @if(experiencia.Foto != null)
         { 
-        <img class="img-fluid" style="width:250px" src="data:image/jpeg;base64, @Convert.ToBase64String(experiencia.Foto)"/>
+        <img class="img-thumbnail mb-4" style="width:400px" src="data:image/jpeg;base64, @Convert.ToBase64String(experiencia.Foto)"/>
         }
-        
 
-        <p>Empresa:</p>
-        <h4>@Html.DisplayFor(modelItem => experiencia.NomeEmpresa)</h4>
-        <p>Cargo:</p>
+        
+        <h3>@Html.DisplayFor(modelItem => experiencia.NomeEmpresa)</h3>
+        
         <h4>@Html.DisplayFor(modelItem => experiencia.Cargo)</h4>
-        <p>De</p>
+        
         <h5>De @Html.DisplayFor(modelItem => experiencia.DataInicio) a @Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
-        <p>Data de Fim:</p>
-        <h5>@Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
-        <p>Funções:</p>
-        <h5>@Html.DisplayFor(modelItem => experiencia.Funcoes)</h5>
+        
+        <h6>@Html.DisplayFor(modelItem => experiencia.Funcoes)</h6>
+             <br />
+
     </div>
     <div class="pagination justify-content-center">
         @if (User.IsInRole("admin"))
@@ -105,10 +102,12 @@
             if (paginaFinal > Model.Paginacao.TotalPaginas) { paginaFinal = Model.Paginacao.TotalPaginas; }
         }
 
+        @if (Model.Paginacao.PaginaAtual != paginaInicial)
+        {
         <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disable" : " ")">
-            <a class="page-link" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisa" >Primeira</a>
+            <a class="page-link" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisa" >Primeira Página</a>
         </li>
-
+        }
         @for (int i = paginaInicial; i <= paginaFinal; i++)
         {
             <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
@@ -116,8 +115,10 @@
             </li>
         }
 
+        @if (Model.Paginacao.PaginaAtual != paginaFinal) { 
         <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas ? "disable" : " ")">
-            <a class="page-link" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisa">Última</a>
+            <a class="page-link" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisa">Última Página</a>
         </li>
+        }
     </ul>
 </nav>

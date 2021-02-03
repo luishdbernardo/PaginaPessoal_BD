@@ -1,10 +1,10 @@
 ﻿@model PaginaPessoal_BD.Models.Experiencia
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
-<h1>Edit</h1>
+<h1>Editar</h1>
 
 <h4>Experiencia</h4>
 <hr />
@@ -36,12 +36,18 @@
             <div class="form-group">
                 <label for="fotoFicheiro" class="control-label">Imagem</label>
                 <input name="fotoFicheiro" class="form-control-file" type="file" />
-                <input asp-for="Foto" type="hidden" /> @*Faço um hidden foto porque é preciso passar para aqui a foto, porque se não o fizer depois de editar não me vai aparecer a foto:*@
             </div>
             <div class="form-group">
+                <input asp-for="Foto" type="hidden" /> @*Faço um hidden foto porque é preciso passar para aqui a foto, porque se não o fizer depois de editar não me vai aparecer a foto:*@
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
+    </div>
+    <div class="mb-4">
+        @if (Model.Foto != null)
+        {
+            <img src="data:image/jpeg;base64, @Convert.ToBase64String(Model.Foto)" class="img-fluid" />
+        }
     </div>
 </div>
 

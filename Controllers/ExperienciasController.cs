@@ -139,21 +139,23 @@ namespace PaginaPessoal_BD.Controllers
             {
                 return NotFound();
             }
+
             
+
             if (ModelState.IsValid)
             {
 
-                if (fotoFicheiro != null && fotoFicheiro.Length > 0)
-                {
-                    using (var ficheiroMemoria = new MemoryStream())
-                    {
-                        fotoFicheiro.CopyTo(ficheiroMemoria);
-                        experiencia.Foto = ficheiroMemoria.ToArray();
-                    }
-                }
-
                 try
                 {
+                    if (fotoFicheiro != null && fotoFicheiro.Length > 0)
+                    {
+                        using (var ficheiroMemoria = new MemoryStream())
+                        {
+                            fotoFicheiro.CopyTo(ficheiroMemoria);
+                            experiencia.Foto = ficheiroMemoria.ToArray();
+                        }
+                    }
+
                     _context.Update(experiencia);
                     await _context.SaveChangesAsync();
                 }
@@ -170,6 +172,8 @@ namespace PaginaPessoal_BD.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            
             return View(experiencia);
         }
 
