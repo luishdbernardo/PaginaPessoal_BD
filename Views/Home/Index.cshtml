@@ -5,20 +5,19 @@
 <!-- PAINEL INICIAL-->
 <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
+
         <!-- Masthead Avatar Image-->
         <img class="masthead-avatar rounded mb-5" src="img/fotocara.jpg" alt="Foto Luís Bernardo" />
+
         <!-- Masthead Heading-->
         <h1 class="masthead-heading text-uppercase mb-0">bem vindo</h1>
         <p><br /></p>
 
         <!-- Masthead Subheading-->
         <p class="masthead-subheading text-uppercase font-weight-light mb-0">À minha Página Pessoal</p>
-
-
-
-
     </div>
 </header>
+
 <!-- OLÁ-->
 <section class="page-section" id="contact">
     <div class="container">
@@ -37,71 +36,73 @@
         </div>
         <!-- About Section Button-->
         <div class="text-center mt-4">
-            <!--por link para google drive-->
-            <a class="btn btn-xl btn-outline-dark" href="CV/cv_luis_bernardo.pdf">
-                <i class="fas fa-download mr-2"></i>
-                Curriculum Vitae
-            </a>
+            @if (User.IsInRole("admin") || User.IsInRole("visitantes"))
+            {
+                <a class="btn btn-xl btn-outline-dark" href="CV/cv_luis_bernardo.pdf" target="_blank">
+                    <i class="fas fa-download mr-2"></i>
+                    Curriculum Vitae
+                </a>}
+            <!--else aparecer um botão, mas com um card a dizer para fazer login/Registo Faça login/regito para ter acesso a esta informação-->
         </div>
-    </div>
-</section>
-<!-- About Section-->
-<!-- DESCOBRE MAIS SOBRE MIM-->
-<section class="page-section portfolio bg-pprimary text-white" id="portfolio">
-    <div class="container">
-        <!-- Portfolio Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Descobre mais</h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
         </div>
-        <br /><br />
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-2 col-lg-2 col-xs-2">
-                    <a href="separadores/sobremim.html">
-                        <img src="~/img/sobremim.png" class="img-fluid rounded" id="imagemflutua"
-                             alt="Sobre Mim - Página Pessoal Luís Bernardo"
-                             title="Sobre Mim" />
-                    </a>
-                    <a id="titulos" href="separadores/sobremim.html"><p>Sobre <br />Mim</p></a>
-                </div>
+    </section>
+    <!-- About Section-->
+            <!-- DESCOBRE MAIS SOBRE MIM-->
+            <section class="page-section portfolio bg-pprimary text-white" id="portfolio">
+                <div class="container">
+                    <!-- Portfolio Section Heading-->
+                    <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Descobre mais</h2>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <br /><br />
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-2 col-lg-2 col-xs-2">
+                                <a asp-controller="Sobremim" asp-action="Index">
+                                    <img src="~/img/sobremim.png" class="img-fluid rounded" id="imagemflutua"
+                                         alt="Sobre Mim - Página Pessoal Luís Bernardo"
+                                         title="Sobre Mim" />
+                                </a>
+                                <a id="titulos" asp-controller="Sobremim" asp-action="Index"><p>Sobre <br />Mim</p></a>
+                            </div>
 
-                <div class="col-md-2 col-lg-2 col-xs-2">
-                    <a href="separadores/experienciaprofissional.html">
-                        <img src="~/img/expprofessional.png" class="img-fluid rounded" id="imagemflutua"
-                             alt="Experiência Profissional - Página Pessoal Luís Bernardo"
-                             title="Experiência Profissional" />
-                    </a>
-                    <a id="titulos" href="separadores/experienciaprofissional.html"><p>Experiência <br /> Profissional</p></a>
+                            <div class="col-md-2 col-lg-2 col-xs-2">
+                                <a asp-controller="Experiencias" asp-action="Index">
+                                    <img src="~/img/expprofessional.png" class="img-fluid rounded" id="imagemflutua"
+                                         alt="Experiência Profissional - Página Pessoal Luís Bernardo"
+                                         title="Experiência Profissional" />
+                                </a>
+                                <a id="titulos" asp-controller="Experiencias" asp-action="Index"><p>Experiência <br /> Profissional</p></a>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-xs-2">
+                                <a asp-controller="HabilitacoesAcademicas" asp-action="Index">
+                                    <img src="~/img/habacademicas.png" class="img-fluid rounded" id="imagemflutua"
+                                         alt="Habilitações Académicas - Página Pessoal Luís Bernardo"
+                                         title="Habilitações Académicas" />
+                                </a>
+                                <a id="titulos" asp-controller="HabilitacoesAcademicas" asp-action="Index"><p>Habilitações <br /> Académicas</p></a>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-xs-2">
+                                <a asp-controller="AptidoesCompetencias" asp-action="Index">
+                                    <img src="~/img/aptidoescompetencias.png" class="img-fluid rounded" id="imagemflutua"
+                                         alt="Aptidões e Competências - Página Pessoal Luís Bernardo"
+                                         title="Aptidões e Competências" />
+                                </a>
+                                <a id="titulos" asp-controller="AptidoesCompetencias" asp-action="Index"><p>Aptidões e <br /> Competências</p></a>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-xs-2">
+                                <a asp-controller="FunFacts" asp-action="Index">
+                                    <img src="~/img/funfacts.png" class="img-fluid rounded" id="imagemflutua"
+                                         alt="Fun Facts - Página Pessoal Luís Bernardo"
+                                         title="Fun Facts" />
+                                </a>
+                                <a id="titulos" asp-controller="FunFacts" asp-action="Index"><p>Fun<br />Facts</p></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-2 col-lg-2 col-xs-2">
-                    <a href="separadores/habacademicas.html">
-                        <img src="~/img/habacademicas.png" class="img-fluid rounded" id="imagemflutua"
-                             alt="Habilitações Académicas - Página Pessoal Luís Bernardo"
-                             title="Habilitações Académicas" />
-                    </a>
-                    <a id="titulos" href="separadores/habacademicas.html"><p>Habilitações <br /> Académicas</p></a>
-                </div>
-                <div class="col-md-2 col-lg-2 col-xs-2">
-                    <a href="separadores/aptidoescompetencias.html">
-                        <img src="~/img/aptidoescompetencias.png" class="img-fluid rounded" id="imagemflutua"
-                             alt="Aptidões e Competências - Página Pessoal Luís Bernardo"
-                             title="Aptidões e Competências" />
-                    </a>
-                    <a id="titulos" href="separadores/aptidoescompetencias.html"><p>Aptidões e <br /> Competências</p></a>
-                </div>
-                <div class="col-md-2 col-lg-2 col-xs-2">
-                    <a href="separadores/funfacts.html">
-                        <img src="~/img/funfacts.png" class="img-fluid rounded" id="imagemflutua"
-                             alt="Fun Facts - Página Pessoal Luís Bernardo"
-                             title="Fun Facts" />
-                    </a>
-                    <a id="titulos" href="separadores/funfacts.html"><p>Fun<br />Facts</p></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
