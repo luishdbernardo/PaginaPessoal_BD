@@ -6,7 +6,7 @@
 
 
 <!-- OLÁ-->
-<section class="page-section mt-lg-5" id="contact">
+<section class="page-section mt-lg-4" id="contact">
     <div class="container">
         <!-- Contact Section Heading-->
         <h1 class="topo page-section-heading text-center text-uppercase text-secondary mb-0">Experiência Profissional</h1>
@@ -17,76 +17,73 @@
             <div class="divider-custom-line"></div>
         </div>
 
-        @*<div class="card border-danger">
-            <div class="card-body" id="alinhamento">
-                <partial name="_LoginPartial" />
-            </div>
-        </div>*@
 
-        <a asp-action="Create" class="btn btn-success mb-5">Nova entrada</a>
-
-
-        <div class="card border-info mb-5">
-            <div class="card-body">
-                <form asp-action="Index" method="get">
-                    <div class="form-group">
-                        <h5><label for="nomePesquisa" class="control-label">Nome a pesquisar</label></h5>
-                        <input name="nomePesquisa" class="form-control" type="search" value="@Model.NomePesquisa" />
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Pesquisar" class="btn btn-primary" />
-                        <a asp-action="Index" class="btn btn-secondary">Limpar</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-
-        @if (Model.Experiencias.Count() == 0)
-        {
-            <p>Não existem experiências para mostrar</p>
-        }
-
-        <!-- About Section Content-->
-        <div class="row">
-            <p class="lead">
-        </div>
-
-        @foreach (var experiencia in Model.Experiencias)
-        {
-         <div class="mb-4">
-       
-        @if(experiencia.Foto != null)
-        { 
-        <img class="img-thumbnail mb-4" style="width:400px" src="data:image/jpeg;base64, @Convert.ToBase64String(experiencia.Foto)"/>
-        }
-
-        
-        <h3>@Html.DisplayFor(modelItem => experiencia.NomeEmpresa)</h3>
-        
-        <h4>@Html.DisplayFor(modelItem => experiencia.Cargo)</h4>
-        
-        <h5>De @Html.DisplayFor(modelItem => experiencia.DataInicio) a @Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
-        
-        <h6>@Html.DisplayFor(modelItem => experiencia.Funcoes)</h6>
-             <br />
-
-    </div>
-    <div class="pagination justify-content-center">
         @if (User.IsInRole("admin"))
         {
-            <a class="btn btn-warning align-items-center nav-item mx-0 mx-lg-1" asp-action="Edit" asp-route-id="@experiencia.ExperienciaId">Editar</a>
-            <a class="btn btn-danger align-items-center nav-item mx-0 mx-lg-1" asp-action="Delete" asp-route-id="@experiencia.ExperienciaId">Apagar</a>
-            <a class="btn btn-info align-items-center nav-item mx-0 mx-lg-1" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Detalhes</a>
+            <a asp-action="Create" class="btn btn-success mb-5">Nova entrada</a>
         }
-        @if (User.IsInRole("visitantes"))
-        {
-            <a class="btn btn-info align-items-center nav-item mx-0 mx-lg-1" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Detalhes</a>
-        }
-    </div>
-            
-        }
-    </div>
+
+            <div class="card border-info mb-5">
+                <div class="card-body">
+                    <form asp-action="Index" method="get">
+                        <div class="form-group">
+                            <h5><label for="nomePesquisa" class="control-label">Nome a pesquisar</label></h5>
+                            <input name="nomePesquisa" class="form-control" type="search" value="@Model.NomePesquisa" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Pesquisar" class="btn btn-primary" />
+                            <a asp-action="Index" class="btn btn-secondary">Limpar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            @if (Model.Experiencias.Count() == 0)
+            {
+                <p>Não existem experiências para mostrar</p>
+            }
+
+            <!-- About Section Content-->
+            <div class="row">
+                <p class="lead">
+            </div>
+
+            @foreach (var experiencia in Model.Experiencias)
+            {
+                <div class="mb-4">
+
+                    @if (experiencia.Foto != null)
+                    {
+                        <img class="img-thumbnail mb-4" style="width:400px" src="data:image/jpeg;base64, @Convert.ToBase64String(experiencia.Foto)" />
+                    }
+
+
+                    <h3>@Html.DisplayFor(modelItem => experiencia.NomeEmpresa)</h3>
+
+                    <h4>@Html.DisplayFor(modelItem => experiencia.Cargo)</h4>
+
+                    <h5>De @Html.DisplayFor(modelItem => experiencia.DataInicio) a @Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
+
+                    <h6>@Html.DisplayFor(modelItem => experiencia.Funcoes)</h6>
+                    <br />
+
+                </div>
+                <div class="pagination justify-content-center">
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a class="btn btn-warning align-items-center nav-item mx-0 mx-lg-1" asp-action="Edit" asp-route-id="@experiencia.ExperienciaId">Editar</a>
+                        <a class="btn btn-danger align-items-center nav-item mx-0 mx-lg-1" asp-action="Delete" asp-route-id="@experiencia.ExperienciaId">Apagar</a>
+                        <a class="btn btn-info align-items-center nav-item mx-0 mx-lg-1" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Detalhes</a>
+                    }
+                    @if (User.IsInRole("visitantes"))
+                    {
+                        <a class="btn btn-info align-items-center nav-item mx-0 mx-lg-1" asp-action="Details" asp-route-id="@experiencia.ExperienciaId">Ver mais detalhes</a>
+                    }
+                </div>
+
+            }
+        </div>
 </section>
 
 <!-- Paginação-->

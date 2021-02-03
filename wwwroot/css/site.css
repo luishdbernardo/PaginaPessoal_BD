@@ -54,11 +54,15 @@
     font-size: 2.8rem;
 }
 
+#h3size {
+    font-size: 4.0rem;
+}
+
 .fa-carrot, .fa-futbol, .fa-tv, .fa-wikipedia-w, .fa-bus, .fa-church {
     font-size: 72px;
 }
 
-.fa-carrot {
+.fa-carrot{
     color: #e27c3e;
 }
 
@@ -195,3 +199,5 @@
         width: 100%;
     }
 }
+
+

@@ -43,8 +43,20 @@
                     <i class="fas fa-download mr-2"></i>
                     Curriculum Vitae
                 </a>}
-           
-            <!--else aparecer um botão, mas com um card a dizer para fazer login/Registo Faça login/regito para ter acesso a esta informação-->
+            else
+            {
+                <p>
+                    <a class="btn btn-xl btn-outline-dark" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-download mr-2"></i>
+                        Curriculum Vitae
+                    </a>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <p><a class="font-weight-bold" asp-area="" asp-controller="Usuarios" asp-action="Registo">Regista-te</a> ou faz <a class="font-weight-bold" asp-area="Identity" asp-page="/Account/Login">Login </a> para teres acesso a esta informação!</p>
+                    </div>
+                </div>
+
+            }
 
 
         </div>
