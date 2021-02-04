@@ -133,17 +133,19 @@ namespace PaginaPessoal_BD.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ExperienciaId,NomeEmpresa,Cargo,DataInicio,DataFim,Funcoes")] Experiencia experiencia, IFormFile fotoFicheiro)
+        public async Task<IActionResult> Edit(int id, [Bind("ExperienciaId,NomeEmpresa,Cargo,DataInicio,DataFim,Funcoes,Foto")] Experiencia experiencia, IFormFile fotoFicheiro)
         {
             if (id != experiencia.ExperienciaId) //se o id não for igual à experienciaid acaba logo aqui
             {
                 return NotFound();
             }
 
-            
 
-            if (ModelState.IsValid)
+
+            if (!ModelState.IsValid)
             {
+                return View(experiencia); }
+
 
                 try
                 {
@@ -159,6 +161,8 @@ namespace PaginaPessoal_BD.Controllers
                     _context.Update(experiencia);
                     await _context.SaveChangesAsync();
                 }
+
+
                 catch (DbUpdateConcurrencyException) // Esta exepçao o que apanha é se duas pessoas estão a tentar editar o mesmo registo ao mesmo tempo
                 {
                     if (!ExperienciaExists(experiencia.ExperienciaId))
@@ -167,14 +171,11 @@ namespace PaginaPessoal_BD.Controllers
                     }
                     else
                     {
-                        throw;
+                    return View(experiencia);
                     }
                 }
-                return RedirectToAction(nameof(Index));
-            }
-
-            
-            return View(experiencia);
+          
+            return View("Sucesso");
         }
 
         [Authorize(Roles = "admin")]
