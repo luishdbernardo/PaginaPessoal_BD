@@ -51,25 +51,25 @@
 
             @foreach (var experiencia in Model.Experiencias)
             {
-                <div class="mb-4">
+    <div class="mb-3 mt-4">
 
-                    @if (experiencia.Foto != null)
-                    {
-                        <img class="img-thumbnail mb-4" style="width:400px" src="data:image/jpeg;base64, @Convert.ToBase64String(experiencia.Foto)" />
-                    }
+        @if (experiencia.Foto != null)
+        {
+            <img class="img-thumbnail mb-4" style="max-width:300px" src="data:image/jpeg;base64, @Convert.ToBase64String(experiencia.Foto)" />
+        }
 
+        <br />
+        <h3>@Html.DisplayFor(modelItem => experiencia.NomeEmpresa)</h3>
+        <br />
+        <h4>@Html.DisplayFor(modelItem => experiencia.Cargo)</h4>
+        <br />
+        <h5>De @Html.DisplayFor(modelItem => experiencia.DataInicio) a @Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
+        <br /><h6>Funções:</h6>
+        <p>@Html.DisplayFor(modelItem => experiencia.Funcoes)</p>
+        <br />
 
-                    <h3>@Html.DisplayFor(modelItem => experiencia.NomeEmpresa)</h3>
-
-                    <h4>@Html.DisplayFor(modelItem => experiencia.Cargo)</h4>
-
-                    <h5>De @Html.DisplayFor(modelItem => experiencia.DataInicio) a @Html.DisplayFor(modelItem => experiencia.DataFim)</h5>
-
-                    <h6>@Html.DisplayFor(modelItem => experiencia.Funcoes)</h6>
-                    <br />
-
-                </div>
-                <div class="pagination justify-content-center">
+    </div>
+                <div class="pagination justify-content-center mb-5">
                     @if (User.IsInRole("admin"))
                     {
                         <a class="btn btn-warning align-items-center nav-item mx-0 mx-lg-1" asp-action="Edit" asp-route-id="@experiencia.ExperienciaId">Editar</a>
